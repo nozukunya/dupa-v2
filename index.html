@@ -104,110 +104,83 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="GRA" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="91BC458E-C785-4C87-8C23-BFDA2C1BF88B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Główne tło i ustawienia tekstu */
-body {
-  background-color: #f8fafc; /* Bardzo jasny szary/biały */
-  color: #1e293b; /* Ciemnoszary tekst dla lepszej czytelności */
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	<tw-storydata name="GRA" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="91BC458E-C785-4C87-8C23-BFDA2C1BF88B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+  background-color: white !important;
+  color: #333 !important;
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  display: flex;
-  justify-content: center;
+  padding: 0;
   text-align: center;
 }
 
-/* Ukrycie paska bocznego Twine */
-#ui-bar { display: none; }
-#story { margin: 0 !important; width: 100%; padding-top: 40px; }
+#ui-bar { display: none; } /* Ukrywa boczny pasek Twine */
+#story { margin: 0 !important; width: 100% !important; }
 
-/* Stylizacja Menu Głównego */
-.menu-container h1 {
-  font-size: 2em;
-  color: #0ea5e9; /* Jasny błękit */
-  margin-bottom: 5px;
-  font-weight: 800;
+/* Kontener dla Menu */
+.app-container {
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #007bff; /* Niebieski tytuł */
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 0.85em;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: #666;
+  font-size: 14px;
   margin-bottom: 40px;
 }
 
-/* Stylizacja Linków i Przycisków */
-.menu-links a, a {
+/* Przyciski jako kafelki */
+.menu-btn {
   display: block;
-  margin: 12px auto;
-  padding: 16px;
-  width: 75%;
-  max-width: 300px;
-  border: none;
-  background: linear-gradient(135deg, #2ecc71, #27ae60); /* Zielony gradient */
+  background-color: #28a745; /* Jasny zielony */
   color: white !important;
-  text-decoration: none;
+  text-decoration: none !important;
+  margin: 15px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 15px;
   font-weight: bold;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.menu-links a:hover, a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(39, 174, 96, 0.3);
-  background: linear-gradient(135deg, #27ae60, #219150);
-}
-
-/* Specyficzny wygląd dla linku "Powrót" (Błękitny) */
-a[data-passage="Menu"], a[data-passage="Menu Glowne"] {
-  background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-/* Wygląd ramki z wynikiem (Eventy / Zasady) */
-.wynik-box {
-  background: white;
-  border: 2px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 20px auto;
-  width: 85%;
-  max-width: 400px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-}
-
-.wynik-box h3 {
-  color: #0ea5e9; /* Błękitny nagłówek */
-  margin-top: 0;
-  font-size: 1.2em;
-}
-
-.wynik-box p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: #334155;
-}
-
-/* Stylizacja przycisku Losuj (Button) */
+/* Przycisk losowania (Button) */
 button {
-  background: #2ecc71;
+  background-color: #28a745;
   color: white;
   border: none;
-  padding: 16px;
-  width: 80%;
-  max-width: 320px;
-  font-family: inherit;
-  font-size: 1em;
+  padding: 20px;
+  width: 85%;
+  max-width: 300px;
+  border-radius: 15px;
+  font-size: 18px;
   font-weight: bold;
-  border-radius: 12px;
   cursor: pointer;
   margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
-  transition: all 0.2s;
 }
 
-button:hover {
-  background: #27ae60;
-  transform: scale(1.02);
+/* Ramka wyniku */
+.wynik-box {
+  background-color: #f8f9fa;
+  border: 2px solid #007bff; /* Niebieska ramka */
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px auto;
+  width: 85%;
+  max-width: 350px;
+}
+
+/* Link powrotu */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff !important;
+  text-decoration: underline;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;menu-container&quot;&gt;
   &lt;h1&gt;SUPER GRA&lt;/h1&gt;
   &lt;p class=&quot;subtitle&quot;&gt;SYSTEM WSPOMAGANIA ROZGRYWKI&lt;/p&gt;
@@ -217,6 +190,14 @@ button:hover {
     [[ZASADY|Zasady]]
     [[PUNKTACJA|Punktacja]]
   &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;app-container&quot;&gt;
+  &lt;h1&gt;MOJA GRA&lt;/h1&gt;
+  &lt;p class=&quot;subtitle&quot;&gt;Panel Sterowania&lt;/p&gt;
+
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;LOSUJ EVENT&lt;/a&gt;
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY&lt;/a&gt;
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="900,225" size="100,100">&lt;&lt;set $lista = [
   &quot;Znajdujesz apteczkę: +20 HP&quot;,
   &quot;Wpadłeś w pułapkę: -10 HP&quot;,
@@ -234,6 +215,22 @@ button:hover {
 &lt;&lt;button &quot;Losuj ponownie&quot;&gt;&gt;
 	&lt;&lt;goto &quot;Eventy&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;
+&lt;&lt;set $lista = [&quot;Znajdujesz skarb!&quot;, &quot;Nic się nie dzieje&quot;, &quot;Tracisz 5 HP!&quot;]&gt;&gt;
+&lt;&lt;set $wynik = $lista.pluck()&gt;&gt;
+
+&lt;div class=&quot;app-container&quot;&gt;
+  &lt;div class=&quot;wynik-box&quot;&gt;
+    &lt;h3 style=&quot;color:#007bff&quot;&gt;WYNIK:&lt;/h3&gt;
+    &lt;p&gt;$wynik&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;&lt;button &quot;LOSUJ PONOWNIE&quot;&gt;&gt;
+    &lt;&lt;goto &quot;Eventy&quot;&gt;&gt;
+  &lt;&lt;/button&gt;&gt;
+
+  &lt;br&gt;
+  [[Powrót do Menu|Menu]]
+&lt;/div&gt;
 
 [[POWRÓT DO MENU|Menu]]</tw-passagedata><tw-passagedata pid="3" name="Zasady" tags="" position="900,350" size="100,100">&lt;div class=&quot;wynik-box&quot;&gt;
   &lt;h3&gt;Zasady Gry&lt;/h3&gt;
