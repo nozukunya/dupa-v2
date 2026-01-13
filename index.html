@@ -164,8 +164,10 @@ button {
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 20px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;menu-container&quot;&gt;
-  &lt;h1&gt;SUPER GRA&lt;/h1&gt;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">
+
+ &lt;div class=&quot;menu-container&quot;&gt;
+  &lt;h1&gt;SUPER GIGA FAJNA GRA&lt;/h1&gt;
   &lt;p class=&quot;subtitle&quot;&gt;SYSTEM WSPOMAGANIA ROZGRYWKI&lt;/p&gt;
 
   &lt;div class=&quot;menu-links&quot;&gt;
@@ -173,12 +175,7 @@ button {
     [[ZASADY|Zasady]]
     [[PUNKTACJA|Punktacja]]
   &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;app-container&quot;&gt;
-  &lt;h1&gt;MOJA GRA&lt;/h1&gt;
-  &lt;p class=&quot;subtitle&quot;&gt;Panel Sterowania&lt;/p&gt;
-
- </tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="900,225" size="100,100">&lt;&lt;set $lista = [
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="950,225" size="100,100">&lt;&lt;set $lista = [
   &quot;Znajdujesz apteczkę: +20 HP&quot;,
   &quot;Wpadłeś w pułapkę: -10 HP&quot;,
   &quot;Spotykasz handlarza bronią&quot;,
@@ -192,14 +189,18 @@ button {
   &lt;p&gt;$wynik&lt;/p&gt;
 &lt;/div&gt;
 
-[[POWRÓT DO MENU|Menu]]</tw-passagedata><tw-passagedata pid="3" name="Zasady" tags="" position="900,350" size="100,100">&lt;div class=&quot;wynik-box&quot;&gt;
+&lt;&lt;button &quot;Losuj ponownie&quot;&gt;&gt;
+	&lt;&lt;goto &quot;Eventy&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+[[POWRÓT DO MENU|Menu]]</tw-passagedata><tw-passagedata pid="3" name="Zasady" tags="" position="950,350" size="100,100">&lt;div class=&quot;wynik-box&quot;&gt;
   &lt;h3&gt;Zasady Gry&lt;/h3&gt;
   &lt;p&gt;1. Używaj skanera tylko na polecenie z książki.&lt;/p&gt;
   &lt;p&gt;2. Wynik losowania jest ostateczny.&lt;/p&gt;
   &lt;p&gt;3. Prowadź notatki w karcie postaci.&lt;/p&gt;
 &lt;/div&gt;
 
-[[POWRÓT DO MENU|Menu]]</tw-passagedata><tw-passagedata pid="4" name="Punktacja" tags="" position="900,475" size="100,100">&lt;div class=&quot;wynik-box&quot;&gt;
+[[POWRÓT DO MENU|Menu]]</tw-passagedata><tw-passagedata pid="4" name="Punktacja" tags="" position="950,475" size="100,100">&lt;div class=&quot;wynik-box&quot;&gt;
   &lt;h3&gt;Tabela Punktacji&lt;/h3&gt;
   &lt;p&gt;• Zadanie 1 - 3 pkt&lt;/p&gt;
   &lt;p&gt;• Zadanie 2 - 4 pkt&lt;/p&gt;
