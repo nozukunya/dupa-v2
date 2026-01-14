@@ -213,6 +213,9 @@ button {
   text-decoration: none;
   font-size: 14px;
   border-bottom: 1px solid #52b788;
+}
+p {
+  transition: color 0.5s ease;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">
 &lt;div class=&quot;app-container&quot;&gt;
   &lt;h1&gt;SUPER GRA&lt;/h1&gt;
@@ -221,22 +224,62 @@ button {
   &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;EVENTY&lt;/a&gt;
   &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY ROZGRYWKI&lt;/a&gt;
   &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="950,225" size="100,100">&lt;&lt;set $lista = [
-  &quot;Znajdujesz porzucony plecak. +5 punktów przetrwania.&quot;,
-  &quot;Teren jest skażony. Musisz zawrócić lub stracić 2 HP.&quot;,
-  &quot;Spotykasz ocalałego, który chce wymienić się informacjami.&quot;,
-  &quot;System wykrył anomalie pogodowe. Czekasz 1 turę.&quot;,
-  &quot;Znajdujesz stare mapy. Odblokowano nową lokację!&quot;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="950,225" size="100,100">&lt;&lt;set $pozytywne = [
+  &quot;Świeci słońce, więc masz więcej energii do pracy! +2 pkt&quot;,
+  &quot;Wypiłeś kawę tak dobrą, jak ta, którą pił Charlie Kirk! +2 pkt&quot;,
+  &quot;Twój zwierzak położył się na Twoich kolanach w czasie pracy! +2 pkt&quot;,
+  &quot;Możesz słuchać swojej ulubionej muzyki podczas pracy! +2 pkt&quot;,
+  &quot;Nie masz kaca po wczorajszej imprezie! +2 pkt&quot;,
+  &quot;Masz podgrzewaną podłogę i ciepło Ci w stopy! +2 pkt&quot;,
+  &quot;Partner przyniósł Ci jedzenie do pokoju, gdy zmagałeś się z zadaniem! +2 pkt&quot;,
+  &quot;Możesz siedzieć w swojej wygodnej piżamce przez cały dzień! +2 pkt&quot;,
+  &quot;Masz nowe, mega wygodne krzesło biurowe z masażem! +2 pkt&quot;,
+  &quot;Zjadłeś bardzo pyszne śniadanie! +2 pkt&quot;
 ]&gt;&gt;
-&lt;&lt;set $wynik = $lista.pluck()&gt;&gt;
+
+&lt;&lt;set $negatywne = [
+  &quot;Jadąc rano do biura widzisz bijące się dinozaury, co powoduje ogromny korek! -2 pkt&quot;,
+  &quot;Z klimatyzacji wylatuje stado latających elfów, ewakuacja budynku! -2 pkt&quot;,
+  &quot;Szef zamienił się w jednorożca, a reszta w żyrafy. W biurze panuje chaos! -2 pkt&quot;,
+  &quot;Drukarkom wyrosły skrzydła i odleciały w nieznane! -2 pkt&quot;,
+  &quot;Na klawiaturze literki zaczęły zamieniać się miejscami! -2 pkt&quot;,
+  &quot;Kartki papieru zmieniły kolor na czarny, nic nie widać! -2 pkt&quot;,
+  &quot;Podłoga zmieniła się w galaretkę, nie da się po niej chodzić! -2 pkt&quot;,
+  &quot;Latające koty zepsuły windę! -2 pkt&quot;,
+  &quot;Gigantyczna mrówka przewróciła słup energetyczny, brak prądu! -2 pkt&quot;,
+  &quot;Krzesła ożyły i blokują przejścia w biurze! -2 pkt&quot;,
+  &quot;Z głośników wydobywa się gęsta mgła wypełniająca pokój! -2 pkt&quot;,
+  &quot;Drzwi prowadzą na plażę zamiast do toalety! -2 pkt&quot;,
+  &quot;Telefony dzwonią same do siebie, nikt nie może ich odebrać! -2 pkt&quot;,
+  &quot;Potwór z Loch Ness wykradł Twoje dane w ataku hakerskim! -2 pkt&quot;,
+  &quot;Wampir ugryzł Twoją partnerkę od projektu, raport niegotowy! -2 pkt&quot;,
+  &quot;Kserokopiarka wciąga dokumenty do innego wymiaru! -2 pkt&quot;,
+  &quot;Rośliny domagają się przerwy na lunch i blokują wyjście! -2 pkt&quot;
+]&gt;&gt;
+
+&lt;&lt;set $szansa = either(&quot;pozytywne&quot;, &quot;negatywne&quot;, &quot;orenzada&quot;)&gt;&gt;
 
 &lt;div class=&quot;app-container&quot;&gt;
   &lt;div class=&quot;wynik-box&quot;&gt;
-    &lt;h3&gt;Wynik Skanowania:&lt;/h3&gt;
-    &lt;p&gt;$wynik&lt;/p&gt;
+    &lt;h3&gt;Skanowanie rzeczywistości...&lt;/h3&gt;
+    
+    &lt;&lt;if $szansa == &quot;pozytywne&quot;&gt;&gt;
+      &lt;p style=&quot;color: #74c69d;&quot;&gt;$pozytywne.pluck()&lt;/p&gt;
+    &lt;&lt;elseif $szansa == &quot;negatywne&quot;&gt;&gt;
+      &lt;p style=&quot;color: #e63946;&quot;&gt;$negatywne.pluck()&lt;/p&gt;
+    &lt;&lt;else&gt;&gt;
+      &lt;&lt;set $kostka = random(1, 6)&gt;&gt;
+      &lt;p&gt;Z ekspresu do kawy zaczęła lać się orenżada!&lt;/p&gt;
+      &lt;p&gt;Wyrzuciłeś: $kostka&lt;/p&gt;
+      &lt;&lt;if $kostka &lt;= 3&gt;&gt;
+        &lt;p style=&quot;color: #74c69d;&quot;&gt;Uwielbiasz orenżadę! +2 pkt&lt;/p&gt;
+      &lt;&lt;else&gt;&gt;
+        &lt;p style=&quot;color: #e63946;&quot;&gt;Nienawidzisz orenżady! -2 pkt&lt;/p&gt;
+      &lt;--&lt;&lt;endif&gt;&gt;
+    &lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
 
-  &lt;&lt;button &quot;LOSUJ PONOWNIE&quot;&gt;&gt;
+  &lt;&lt;button &quot;PONÓW SKANOWANIE&quot;&gt;&gt;
     &lt;&lt;goto &quot;Eventy&quot;&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 
