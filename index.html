@@ -105,125 +105,97 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
 	<tw-storydata name="GRA" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="91BC458E-C785-4C87-8C23-BFDA2C1BF88B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
-  background-color: #121212 !important;
-  color: #e0e0e0 !important;
-  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: #fdf6e3 !important; /* Jasne, kremowe tło przyjemne dla oka */
+  color: #444 !important; /* Ciemnoszary tekst (lepszy niż czarny) */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
 #ui-bar { display: none; }
-#story { margin: 0 !important; width: 100% !important; }
-
-/* Główny kontener centrujący wszystko */
-.app-container {
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-}
+#story { margin: 0 !important; width: 100% !important; padding-top: 30px; }
 
 h1 {
-  color: #52b788;
-  font-size: 32px;
-  margin: 0 0 10px 0;
-  width: 100%;
-  text-align: center; /* Wymuszenie środka */
-  letter-spacing: 1px;
+  color: #8c9a6b; /* Ta zgaszona zieleń z Twojej grafiki */
+  font-size: 2.2em;
+  margin-bottom: 5px;
 }
 
 .subtitle {
-  color: #888;
-  font-size: 13px;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  text-align: center;
-  width: 100%;
+  color: #a3a3a3;
+  font-size: 0.9em;
+  margin-bottom: 30px;
 }
 
-/* Przyciski Menu */
+/* KONTENER PRZYCISKÓW */
 .menu-btn {
   display: block;
-  background-color: #2d6a4f;
-  color: #d8f3dc !important;
-  text-decoration: none !important;
-  margin: 10px 0;
+  margin: 15px auto;
   padding: 18px;
-  width: 100%;
+  width: 80%;
   max-width: 300px;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 16px;
-  border: 1px solid #40916c;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.menu-btn:hover {
-  background-color: #40916c;
-  transform: translateY(-2px);
-}
-
-/* Przycisk losowania w Eventach */
-button {
-  background-color: #2d6a4f;
-  color: #d8f3dc;
-  border: 1px solid #40916c;
-  padding: 18px;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 20px;
-  font-family: inherit;
-}
-
-/* Ramka z tekstem losowania */
-.wynik-box {
-  background-color: #1a1a1a;
-  border: 1px solid #52b788;
   border-radius: 15px;
+  font-weight: bold;
+  text-decoration: none !important;
+  color: white !important; /* Biały tekst na kolorowych przyciskach */
+  border: none;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.05); /* Delikatny cień na dole */
+  transition: transform 0.1s;
+}
+
+.menu-btn:active {
+  transform: translateY(3px); /* Efekt wciskania przycisku */
+}
+
+/* KOLORY Z TWOJEJ PALETY */
+.btn-green { background-color: #8c9a6b !important; } /* Zgaszona zieleń */
+.btn-purple { background-color: #b9a9c3 !important; } /* Pastelowy fiolet */
+.btn-pink { background-color: #eab4ae !important; } /* Pudrowy róż */
+
+/* RAMKA WYNIKU */
+.wynik-box {
+  background-color: white;
+  border: 3px solid #f2d9a6; /* Ten żółty kolor jako ramka */
+  border-radius: 20px;
   padding: 25px;
-  margin: 20px 0;
-  width: 100%;
+  margin: 20px auto;
+  width: 85%;
   max-width: 350px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .wynik-box h3 {
-  color: #74c69d;
+  color: #8c9a6b;
   margin-top: 0;
-  font-size: 14px;
-  text-transform: uppercase;
+}
+
+/* STYL DLA ZWYKŁYCH PRZYCISKÓW (np. Losuj Ponownie) */
+button {
+  background-color: #8c9a6b;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
 }
 
 .back-link {
-  display: inline-block;
-  margin-top: 25px;
-  color: #52b788 !important;
+  color: #b9a9c3 !important;
   text-decoration: none;
-  font-size: 14px;
-  border-bottom: 1px solid #52b788;
-}
-p {
-  transition: color 0.5s ease;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">
-&lt;div class=&quot;app-container&quot;&gt;
-  &lt;h1&gt;SUPER GRA&lt;/h1&gt;
-  &lt;p class=&quot;subtitle&quot;&gt;System Zarządzania Eventami&lt;/p&gt;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;app-container&quot;&gt;
+  &lt;h1&gt;BIUROWE PRZYGODY&lt;/h1&gt;
+  &lt;p class=&quot;subtitle&quot;&gt;Magiczny System Zarządzania&lt;/p&gt;
 
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;EVENTY&lt;/a&gt;
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY ROZGRYWKI&lt;/a&gt;
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-green&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;URUCHOM SKANER&lt;/a&gt;
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-purple&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY GRY&lt;/a&gt;
+  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-pink&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="950,225" size="100,100">&lt;&lt;set $wszystkie_eventy = [
   /* POZYTYWNE */
   &quot;Świeci słońce, więc masz więcej energii do pracy! +2 pkt&quot;,
