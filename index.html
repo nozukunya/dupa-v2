@@ -189,13 +189,36 @@ button {
   font-weight: bold;
   display: inline-block;
   margin-top: 20px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;app-container&quot;&gt;
-  &lt;h1&gt;BIUROWE PRZYGODY&lt;/h1&gt;
-  &lt;p class=&quot;subtitle&quot;&gt;Magiczny System Zarządzania&lt;/p&gt;
+}
 
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-green&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;URUCHOM SKANER&lt;/a&gt;
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-purple&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY GRY&lt;/a&gt;
-  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-pink&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
+.lore-box {
+  background-color: rgba(255, 255, 255, 0.6) !important; /* Bardziej przejrzyste tło */
+  border: 1px solid #f2d9a6;
+  padding: 15px;
+  margin-bottom: 25px;
+  font-style: italic;
+  font-size: 0.85em; /* Nieco mniejszy tekst, aby nie przytłaczał */
+  line-height: 1.4;
+  text-align: justify; /* Ładne wyrównanie tekstu do obu krawędzi */
+}
+
+.menu-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;app-container&quot;&gt;
+  &lt;h1&gt;CONFLUENCE&lt;/h1&gt;
+
+  &lt;div class=&quot;wynik-box lore-box&quot;&gt;
+    &lt;p&gt;Firma wielkości korporacji założona w roku x163. Początkowo skupiała się na produkcji sprzętu elektronicznego, potem wraz z postępem technologicznym oraz rozwoju magicznych nauk, do roku x220 zdążyła wkroczyła w bankowość, alchemię, rozwój technologii magicznych, telekomunikację i kilka innych sektorów. Pomijając Rewolucję Magiczną, są jednym z najważniejszych czynników, przez które cywilizacja jest 50 lat do przodu technologicznie. Jedną z założycielek jest Shirio.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;menu-links&quot;&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-green&quot; onclick=&quot;SugarCube.Engine.play(&#39;Eventy&#39;)&quot;&gt;URUCHOM SKANER&lt;/a&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-purple&quot; onclick=&quot;SugarCube.Engine.play(&#39;Zasady&#39;)&quot;&gt;ZASADY GRY&lt;/a&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; class=&quot;menu-btn btn-pink&quot; onclick=&quot;SugarCube.Engine.play(&#39;Punktacja&#39;)&quot;&gt;PUNKTACJA&lt;/a&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Eventy" tags="" position="950,225" size="100,100">&lt;&lt;set $wszystkie_eventy = [
   /* POZYTYWNE */
   &quot;Świeci słońce, więc masz więcej energii do pracy! +2 pkt&quot;,
