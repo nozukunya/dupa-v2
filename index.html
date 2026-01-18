@@ -104,109 +104,122 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="GRA" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="91BC458E-C785-4C87-8C23-BFDA2C1BF88B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
-  background-color: #fdf6e3 !important; /* Jasne, kremowe tło przyjemne dla oka */
-  color: #444 !important; /* Ciemnoszary tekst (lepszy niż czarny) */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	<tw-storydata name="GRA" startnode="1" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="91BC458E-C785-4C87-8C23-BFDA2C1BF88B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Importowanie czcionki Quicksand z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+body {
+  background-color: #fdf6e3 !important;
+  color: #555 !important;
+  /* Zmiana czcionki na Quicksand */
+  font-family: 'Quicksand', sans-serif !important; 
   margin: 0;
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 #ui-bar { display: none; }
-#story { margin: 0 !important; width: 100% !important; padding-top: 30px; }
+#story { 
+  margin: 0 !important; 
+  width: 100% !important; 
+  display: flex;
+  justify-content: center; 
+}
+
+.app-container {
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
 
 h1 {
-  color: #8c9a6b; /* Ta zgaszona zieleń z Twojej grafiki */
+  color: #8c9a6b;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700; /* Pogrubienie dla tytułu */
   font-size: 2.2em;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
+  width: 100%;
 }
 
 .subtitle {
   color: #a3a3a3;
+  font-weight: 600;
   font-size: 0.9em;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* KONTENER PRZYCISKÓW */
-.menu-btn {
-  display: block;
-  margin: 15px auto;
-  padding: 18px;
-  width: 80%;
-  max-width: 300px;
-  border-radius: 15px;
-  font-weight: bold;
-  text-decoration: none !important;
-  color: white !important; /* Biały tekst na kolorowych przyciskach */
-  border: none;
-  box-shadow: 0 4px 0 rgba(0,0,0,0.05); /* Delikatny cień na dole */
-  transition: transform 0.1s;
-}
-
-.menu-btn:active {
-  transform: translateY(3px); /* Efekt wciskania przycisku */
-}
-
-/* KOLORY Z TWOJEJ PALETY */
-.btn-green { background-color: #8c9a6b !important; } /* Zgaszona zieleń */
-.btn-purple { background-color: #b9a9c3 !important; } /* Pastelowy fiolet */
-.btn-pink { background-color: #eab4ae !important; } /* Pudrowy róż */
-
-/* RAMKA WYNIKU */
 .wynik-box {
   background-color: white;
-  border: 3px solid #f2d9a6; /* Ten żółty kolor jako ramka */
-  border-radius: 20px;
-  padding: 25px;
-  margin: 20px auto;
-  width: 85%;
-  max-width: 350px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border: 3px solid #f2d9a6;
+  border-radius: 25px; /* Jeszcze bardziej obłe rogi */
+  padding: 20px;
+  margin: 15px 0;
+  width: 95%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  box-sizing: border-box;
 }
 
-.wynik-box h3 {
-  color: #8c9a6b;
-  margin-top: 0;
+.lore-box p {
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #666;
+  text-align: center;
 }
 
-/* STYL DLA ZWYKŁYCH PRZYCISKÓW (np. Losuj Ponownie) */
+.menu-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 18px;
+  width: 90%;
+  border-radius: 20px; /* Bardziej obłe przyciski */
+  font-weight: 700;
+  font-size: 1.1em;
+  text-decoration: none !important;
+  color: white !important;
+  border: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Kolory przycisków */
+.btn-green { background-color: #8c9a6b !important; }
+.btn-purple { background-color: #b9a9c3 !important; }
+.btn-pink { background-color: #eab4ae !important; }
+
+/* Efekt najechania/kliknięcia */
+.menu-btn:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
 button {
   background-color: #8c9a6b;
   color: white;
   border: none;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
   cursor: pointer;
-  margin: 10px;
+  margin: 15px 0;
 }
 
 .back-link {
   color: #b9a9c3 !important;
   text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
+  font-weight: 700;
   margin-top: 20px;
-}
-
-.lore-box {
-  background-color: rgba(255, 255, 255, 0.6) !important; /* Bardziej przejrzyste tło */
-  border: 1px solid #f2d9a6;
-  padding: 15px;
-  margin-bottom: 25px;
-  font-style: italic;
-  font-size: 0.85em; /* Nieco mniejszy tekst, aby nie przytłaczał */
-  line-height: 1.4;
-  text-align: justify; /* Ładne wyrównanie tekstu do obu krawędzi */
-}
-
-.menu-links {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-size: 0.9em;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Menu" tags="" position="775,350" size="100,100">&lt;div class=&quot;app-container&quot;&gt;
   &lt;h1&gt;CONFLUENCE&lt;/h1&gt;
 
